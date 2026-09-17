@@ -1,0 +1,34 @@
+---
+import Container from '../layout/Container.astro';
+---
+
+<section class="w-full bg-[#F6F4F1] border-b border-[#E6E2DD]">
+  <Container class="py-16 sm:py-20 md:py-24">
+    <div class="bg-white border border-[#E6E2DD] p-6 sm:p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <div class="max-w-3xl">
+        <span class="label-index text-[#A48F7A] font-semibold block mb-2">
+          KeeyCode
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#171717] tracking-tight mb-3 leading-snug">
+          “Un nuevo paso hacia la creación de proyectos y soluciones digitales propias.”
+        </h2>
+        <p class="text-xs label-caps text-[#686662]">
+          René Guevara · Co-Founder
+        </p>
+      </div>
+
+      <div class="flex-shrink-0">
+        <a
+          href="https://www.keeycode.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-2 px-6 py-3.5 bg-[#171717] text-white hover:bg-[#A48F7A] transition-colors duration-200 label-caps text-xs tracking-wider focus-visible:ring-1 focus-visible:ring-[#171717]"
+          aria-label="Visitar el sitio web de KeeyCode (abre en nueva ventana)"
+        >
+          <span>Visit KeeyCode</span>
+          <span class="text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>

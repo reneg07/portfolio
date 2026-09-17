@@ -1,0 +1,69 @@
+---
+import Container from '../layout/Container.astro';
+import { educations, certifications } from '../../data/education';
+---
+
+<section class="w-full bg-white border-b border-[#E6E2DD] scroll-mt-16" id="education">
+  <Container class="py-16 sm:py-20 md:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+      <!-- Left Column: Formal Education -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="border-b border-[#E6E2DD] pb-4">
+          <span class="label-index text-[#A48F7A] block mb-1">04 / EDUCATION</span>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[#171717] tracking-tight">
+            Educación
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          {educations.map((item) => (
+            <div class="p-5 sm:p-6 bg-white border border-[#E6E2DD] hover:border-[#171717] transition-colors duration-200">
+              <div class="flex items-center justify-between text-xs text-[#A48F7A] font-medium mb-2">
+                <span>{item.institution}</span>
+                <span class:list={[
+                  "px-2.5 py-0.5 text-[11px] font-medium label-index uppercase",
+                  item.isCurrent ? "bg-[#F1F1EF] text-[#171717]" : "bg-[#F6F4F1] text-[#686662]"
+                ]}>
+                  {item.status}
+                </span>
+              </div>
+              <h3 class="text-base sm:text-lg font-medium text-[#171717]">
+                {item.degree}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Column: Certifications (Clean & Verified) -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="border-b border-[#E6E2DD] pb-4">
+          <span class="label-index text-[#A48F7A] block mb-1">Acreditaciones Técnicas</span>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[#171717] tracking-tight">
+            Certificaciones Certiport
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {certifications.map((cert) => (
+            <div class="p-5 sm:p-6 bg-white border border-[#E6E2DD] hover:border-[#171717] transition-colors duration-200 flex flex-col justify-between">
+              <div>
+                <span class="label-index text-[11px] text-[#A48F7A] block mb-2">
+                  Certiport Credential
+                </span>
+                <h3 class="text-base font-medium text-[#171717]">
+                  {cert.title}
+                </h3>
+              </div>
+              <div class="pt-4 mt-4 border-t border-[#E6E2DD]">
+                <span class="label-caps text-[11px] text-[#686662]">
+                  Emisor: {cert.issuer}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

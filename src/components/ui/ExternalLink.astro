@@ -1,0 +1,36 @@
+---
+export interface Props {
+  href: string;
+  class?: string;
+  ariaLabel?: string;
+  showArrow?: boolean;
+}
+
+const {
+  href,
+  class: className = '',
+  ariaLabel,
+  showArrow = true
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[
+    "group inline-flex items-center gap-1 transition-colors duration-200",
+    className
+  ]}
+  aria-label={ariaLabel}
+>
+  <slot />
+  {showArrow && (
+    <span
+      class="inline-block text-[11px] leading-none select-none transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      aria-hidden="true"
+    >
+      ↗
+    </span>
+  )}
+</a>

@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import type { SecondaryProjectData } from '../../data/projects';
+
+export interface Props {
+  project: SecondaryProjectData;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card bg-white border border-[#E6E2DD] hover:border-[#171717] transition-colors duration-200 p-5 sm:p-6 md:p-7 flex flex-col justify-between">
+  <div class="space-y-4">
+    <!-- Top Index & Organization -->
+    <div class="flex items-center justify-between pb-3 border-b border-[#E6E2DD]">
+      <span class="label-index text-[#A48F7A]">{project.index}</span>
+      <span class="label-index text-[#686662]">{project.organization}</span>
+    </div>
+
+    <!-- Title & Logo / Placeholder -->
+    <div class="flex items-start justify-between gap-4 pt-1">
+      <div class="flex-1">
+        <span class="label-caps text-[11px] text-[#A48F7A] block leading-tight">
+          {project.role}
+        </span>
+        <h3 class="text-xl sm:text-2xl font-semibold text-[#171717] tracking-tight mt-1">
+          {project.name}
+        </h3>
+        <p class="text-xs text-[#686662] mt-0.5">
+          {project.subtitle}
+        </p>
+      </div>
+
+      <!-- Asset container: Real logo or Neutral editorial placeholder -->
+      <div class="w-14 h-14 bg-[#F6F4F1] border border-[#E6E2DD] flex items-center justify-center flex-shrink-0 p-2 overflow-hidden">
+        {project.logo ? (
+          <Image
+            src={project.logo}
+            alt={project.logoAlt || `Logo de ${project.name}`}
+            width={48}
+            height={48}
+            class="max-w-full max-h-full object-contain"
+            loading="lazy"
+          />
+        ) : (
+          <div
+            class="w-full h-full border border-dashed border-[#C4C7C7] flex flex-col items-center justify-center text-center select-none"
+            title="Placeholder editorial neutro para asset oficial"
+            aria-label="Espacio reservado para asset institucional"
+          >
+            <span class="text-[9px] uppercase tracking-widest text-[#858383] font-medium">Asset</span>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p class="text-xs sm:text-sm text-[#686662] leading-relaxed pt-1">
+      {project.description}
+    </p>
+  </div>
+
+  <!-- Footer Info -->
+  <div class="pt-5 mt-6 border-t border-[#E6E2DD] space-y-2">
+    <div class="text-xs">
+      <span class="label-index text-[#A48F7A] block mb-1">Tech:</span>
+      <span class="label-caps text-[11px] text-[#171717]">
+        {project.technologies.join(' · ')}
+      </span>
+    </div>
+    <span class="label-caps text-[11px] text-[#686662] block pt-1">
+      {project.categoryTag}
+    </span>
+  </div>
+</article>

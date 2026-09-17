@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import type { FeaturedProjectData } from '../../data/projects';
+import { resolvePath } from '../../utils/paths';
+
+export interface Props {
+  project: FeaturedProjectData;
+}
+
+const { project } = Astro.props;
+const caseStudyHref = resolvePath(project.caseStudyUrl);
+---
+
+<article class="project-card bg-white border border-[#E6E2DD] hover:border-[#171717] transition-colors duration-200 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
+  <div>
+    <!-- Header row: metadata badges & logo -->
+    <div class="flex flex-col-reverse sm:flex-row sm:items-start justify-between gap-6 mb-6">
+      <div class="flex-1">
+        <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-3">
+          <span class="label-index text-[#A48F7A] font-semibold">{project.index}</span>
+          <span class="px-2.5 py-0.5 bg-[#F1F1EF] text-[#171717] text-[11px] font-medium tracking-wide uppercase">
+            {project.badge}
+          </span>
+          <span class="px-2.5 py-0.5 bg-[#F1F1EF] text-[#686662] text-[11px] font-medium uppercase">
+            Role: {project.role}
+          </span>
+          <span class="px-2.5 py-0.5 bg-[#F1F1EF] text-[#686662] text-[11px] font-medium uppercase">
+            {project.organization}
+          </span>
+        </div>
+
+        <h3 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#171717]">
+          {project.name}
+        </h3>
+
+        <p class="text-base sm:text-lg text-[#171717] font-normal pt-2 max-w-3xl leading-relaxed">
+          {project.description}
+        </p>
+      </div>
+
+      <!-- Real logo container -->
+      <div class="flex-shrink-0 w-32 h-20 bg-[#F6F4F1] border border-[#E6E2DD] flex items-center justify-center p-3">
+        <Image
+          src={project.logo}
+          alt={project.logoAlt}
+          width={100}
+          height={60}
+          class="max-w-full max-h-full object-contain"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <!-- Main areas block -->
+    <div class="pt-2 mb-6">
+      <span class="label-index text-[#A48F7A] block mb-1.5">Áreas Principales:</span>
+      <p class="text-xs sm:text-sm text-[#171717] font-medium leading-relaxed">
+        {project.areas.join(' · ')}
+      </p>
+    </div>
+
+    <!-- Privacy notice block -->
+    <div class="p-3.5 bg-[#F6F4F1] border border-[#E6E2DD] text-xs text-[#686662] mb-6 leading-relaxed">
+      <span class="font-medium text-[#171717]">Nota de privacidad:</span> “{project.privacyNotice}”
+    </div>
+  </div>
+
+  <!-- Bottom divider: Tech stack & CTA -->
+  <div class="pt-5 border-t border-[#E6E2DD] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="text-xs">
+      <span class="label-index text-[#A48F7A] mr-2">Technologies:</span>
+      <span class="label-caps text-[#171717]">{project.technologies.join(' · ')}</span>
+    </div>
+
+    <a
+      href={caseStudyHref}
+      class="group inline-flex items-center gap-1.5 label-caps text-xs text-[#171717] hover:text-[#A48F7A] font-semibold transition-colors py-1 focus-visible:ring-1 focus-visible:ring-[#171717]"
+      aria-label={`Ver caso de estudio del proyecto ${project.name}`}
+    >
+      <span>View Case Study</span>
+      <span class="inline-block text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+    </a>
+  </div>
+</article>

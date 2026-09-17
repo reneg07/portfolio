@@ -1,0 +1,77 @@
+---
+import Container from './Container.astro';
+import { getSectionLink } from '../../utils/paths';
+
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+const navItems = [
+  { label: 'Work', id: 'work' },
+  { label: 'About', id: 'about' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Stack', id: 'stack' },
+  { label: 'Contact', id: 'contact' },
+];
+---
+
+<footer class="w-full bg-[#171717] text-white border-t border-[#262626]">
+  <Container class="py-12">
+    <!-- Top Row -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#262626]">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+        <div class="flex items-center gap-1">
+          <span class="text-lg font-semibold tracking-tight text-white">RG</span>
+          <span class="text-xs text-[#A48F7A] font-bold select-none">/</span>
+        </div>
+        <span class="hidden sm:inline text-[#3a3a3a]">|</span>
+        <span class="label-caps text-xs text-[#858383]">
+          Full-Stack Software Developer · Co-Founder at KeeyCode
+        </span>
+      </div>
+
+      <nav class="flex flex-wrap items-center gap-5 text-xs label-caps text-[#858383]" aria-label="Navegación pie de página">
+        {navItems.map((item) => (
+          <a
+            href={getSectionLink(item.id, currentPath)}
+            class="hover:text-white transition-colors py-1 focus-visible:ring-1 focus-visible:ring-white"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs label-caps text-[#858383]">
+      <p>
+        San Salvador, El Salvador · © {currentYear} René Guevara
+      </p>
+
+      <div class="flex items-center gap-5">
+        <a
+          href="https://github.com/reneg07"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white transition-colors focus-visible:ring-1 focus-visible:ring-white"
+          aria-label="Perfil de GitHub de René Guevara (abre en nueva ventana)"
+        >
+          GitHub
+        </a>
+        <span class="text-[#3a3a3a] select-none" aria-hidden="true">·</span>
+        <a
+          href="https://www.linkedin.com/in/rene-guevara-519775299/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white transition-colors focus-visible:ring-1 focus-visible:ring-white"
+          aria-label="Perfil de LinkedIn de René Guevara (abre en nueva ventana)"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </Container>
+</footer>

@@ -1,0 +1,63 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "René Guevara — Full-Stack Software Developer",
+  description = "Portafolio profesional de René Guevara, Full-Stack Software Developer y Co-Founder de KeeyCode en San Salvador, El Salvador.",
+  canonicalUrl = Astro.url.href,
+  ogImage = "/og/og-image.png"
+} = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "René Guevara",
+  "jobTitle": "Full-Stack Software Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "KeeyCode",
+    "url": "https://www.keeycode.com"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Salvador",
+    "addressCountry": "El Salvador"
+  },
+  "sameAs": [
+    "https://github.com/reneg07",
+    "https://www.linkedin.com/in/rene-guevara-519775299/",
+    "https://www.keeycode.com"
+  ]
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="es_SV" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalUrl} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={ogImage} />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

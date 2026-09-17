@@ -1,0 +1,35 @@
+---
+import Container from '../layout/Container.astro';
+import { stackCategories } from '../../data/stack';
+---
+
+<section class="w-full bg-white border-b border-[#E6E2DD] scroll-mt-16" id="stack">
+  <Container class="py-16 sm:py-20 md:py-24">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-4 border-b border-[#E6E2DD] gap-4">
+      <div>
+        <span class="label-index text-[#A48F7A] block mb-2">05 / STACK</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#171717] tracking-tight">
+          Tech Stack
+        </h2>
+      </div>
+      <p class="text-sm sm:text-base text-[#686662] max-w-md">
+        Tecnologías, lenguajes y herramientas con las que construyo aplicaciones y soluciones de software.
+      </p>
+    </div>
+
+    <!-- Stack Columns Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
+      {stackCategories.map((cat) => (
+        <div class="space-y-2">
+          <span class="label-index text-[#A48F7A] block border-b border-[#E6E2DD] pb-2">
+            {cat.category}
+          </span>
+          <p class="text-sm text-[#171717] font-medium pt-1 leading-relaxed">
+            {cat.technologies.join(' · ')}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
