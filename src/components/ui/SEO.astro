@@ -10,8 +10,13 @@ const {
   title = "René Guevara — Full-Stack Software Developer",
   description = "Portafolio profesional de René Guevara, Full-Stack Software Developer y Co-Founder de KeeyCode en San Salvador, El Salvador.",
   canonicalUrl = Astro.url.href,
-  ogImage = "/og/og-image.png"
+  ogImage = "og/og-image.png"
 } = Astro.props;
+
+const defaultOgPath = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}` + (ogImage.startsWith('/') ? ogImage.slice(1) : ogImage);
+const resolvedOgImage = ogImage.startsWith('http')
+  ? ogImage
+  : new URL(defaultOgPath, Astro.site || 'https://reneg07.github.io').href;
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -49,7 +54,7 @@ const personSchema = {
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:image" content={resolvedOgImage} />
 <meta property="og:locale" content="es_SV" />
 
 <!-- Twitter -->
@@ -57,7 +62,7 @@ const personSchema = {
 <meta property="twitter:url" content={canonicalUrl} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ogImage} />
+<meta property="twitter:image" content={resolvedOgImage} />
 
 <!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
