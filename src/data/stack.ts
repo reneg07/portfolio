@@ -5,7 +5,7 @@ export interface StackCategory {
 
 export const stackCategories: StackCategory[] = [
   {
-    category: 'Development',
+    category: 'Desarrollo',
     technologies: ['PHP', 'Laravel', 'JavaScript', 'Astro']
   },
   {
@@ -13,7 +13,7 @@ export const stackCategories: StackCategory[] = [
     technologies: ['HTML', 'CSS', 'Bootstrap', 'Tailwind CSS', 'jQuery']
   },
   {
-    category: 'Database',
+    category: 'Bases de Datos',
     technologies: ['MySQL']
   },
   {
@@ -21,7 +21,7 @@ export const stackCategories: StackCategory[] = [
     technologies: ['WordPress']
   },
   {
-    category: 'Tools',
+    category: 'Herramientas',
     technologies: ['Git', 'GitHub']
   }
 ];

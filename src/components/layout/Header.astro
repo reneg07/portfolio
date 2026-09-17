@@ -9,11 +9,11 @@ export interface Props {
 const { currentPath = Astro.url.pathname } = Astro.props;
 
 const navItems = [
-  { label: 'Work', id: 'work' },
-  { label: 'About', id: 'about' },
-  { label: 'Experience', id: 'experience' },
-  { label: 'Stack', id: 'stack' },
-  { label: 'Contact', id: 'contact' },
+  { label: 'Proyectos', id: 'work' },
+  { label: 'Sobre mí', id: 'about' },
+  { label: 'Experiencia', id: 'experience' },
+  { label: 'Tecnologías', id: 'stack' },
+  { label: 'Contacto', id: 'contact' },
 ];
 
 const homeLink = resolvePath('/');
@@ -47,7 +47,7 @@ const homeLink = resolvePath('/');
       <div class="h-4 w-[1px] bg-[#E6E2DD]" aria-hidden="true"></div>
 
       <a
-        href="https://www.keeycode.com"
+        href="https://keeycode.com"
         target="_blank"
         rel="noopener noreferrer"
         class="group label-caps text-[#686662] hover:text-[#171717] flex items-center gap-1 transition-colors py-1 focus-visible:ring-1 focus-visible:ring-[#171717]"
@@ -92,7 +92,7 @@ const homeLink = resolvePath('/');
         </a>
       ))}
       <a
-        href="https://www.keeycode.com"
+        href="https://keeycode.com"
         target="_blank"
         rel="noopener noreferrer"
         class="mobile-nav-link label-caps text-sm text-[#171717] flex items-center justify-between py-2 pt-3"

@@ -36,8 +36,8 @@ export const featuredProject: FeaturedProjectData = {
   index: '01 / 04',
   name: 'FORMA',
   organization: 'FUSALMO',
-  badge: 'Featured Project',
-  role: 'Full Development',
+  badge: 'Proyecto Destacado',
+  role: 'Desarrollo Integral',
   description: 'Sistema institucional para la centralización y gestión integral de participantes, programas y proyectos.',
   areas: [
     'Inscripción y seguimiento',
@@ -47,7 +47,7 @@ export const featuredProject: FeaturedProjectData = {
     'Grupos y subgrupos',
     'Centralización de datos'
   ],
-  privacyNotice: 'Certain interfaces and data cannot be displayed publicly due to institutional privacy requirements.',
+  privacyNotice: 'Ciertas interfaces y datos no pueden mostrarse públicamente debido a requerimientos de privacidad institucional.',
   technologies: ['PHP', 'JavaScript', 'jQuery', 'Bootstrap', 'CSS', 'MySQL'],
   caseStudyUrl: '/projects/forma',
   logo: formaLogo,
@@ -60,34 +60,34 @@ export const secondaryProjects: SecondaryProjectData[] = [
     name: 'SIIF',
     subtitle: 'Sistema de Información Institucional',
     organization: 'FUSALMO',
-    role: 'Development across institutional modules',
+    role: 'Desarrollo en módulos institucionales',
     description: 'Participación en el desarrollo y mantenimiento de módulos institucionales para administración, contabilidad, gestión estratégica y procesos internos.',
     technologies: ['PHP', 'JavaScript', 'jQuery', 'Bootstrap', 'CSS', 'MySQL'],
-    categoryTag: 'Internal Platform',
+    categoryTag: 'Plataforma Institucional',
     logo: siifLogo,
     logoAlt: 'Logo oficial de SIIF'
   },
   {
     index: '03 / 04',
     name: 'Transforma',
-    subtitle: 'Educational & Career Portals',
+    subtitle: 'Portales de Educación y Empleo',
     organization: 'FUSALMO',
     role: 'Transforma Edu & Pro',
     description: 'Mantenimiento, soporte e implementación en plataformas WordPress enfocadas en educación e intermediación laboral.',
     technologies: ['WordPress', 'PHP', 'HTML', 'CSS', 'JavaScript'],
-    categoryTag: 'Web Platforms',
+    categoryTag: 'Plataformas Web',
     logo: transformaLogo,
     logoAlt: 'Logo oficial de Transforma'
   },
   {
     index: '04 / 04',
     name: 'Virtual Party',
-    subtitle: 'Interactive Event Platform',
+    subtitle: 'Plataforma de Evento Interactivo',
     organization: 'FUSALMO',
-    role: 'Multi-day Tech Expo',
+    role: 'Feria Tecnológica Multidía',
     description: 'Apoyo en montaje de secciones, configuración de stands digitales, navegación e implementación de contenido.',
     technologies: ['PHP', 'JavaScript', 'jQuery', 'Bootstrap', 'CSS'],
-    categoryTag: 'Event Platform',
+    categoryTag: 'Plataforma de Eventos',
     hasCustomPlaceholder: true
   }
 ];

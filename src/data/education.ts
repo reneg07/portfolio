@@ -14,18 +14,18 @@ export const educations: EducationItem[] = [
   {
     institution: 'Universidad Don Bosco',
     degree: 'Ingeniería en Ciencias de la Computación',
-    status: 'Current · Fourth Year',
+    status: 'En curso · Cuarto año',
     isCurrent: true
   },
   {
     institution: 'Universidad Don Bosco',
     degree: 'Técnico en Ingeniería en Computación',
-    status: 'Completed'
+    status: 'Completado'
   },
   {
     institution: 'Colegio Don Bosco',
     degree: 'Bachillerato Técnico Vocacional en Sistemas Informáticos',
-    status: 'Completed'
+    status: 'Completado'
   }
 ];
 
